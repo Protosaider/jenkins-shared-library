@@ -49,6 +49,8 @@ def call(String buildStatus = 'STARTED', String channel = '#build') {
   attachment.put('fallback', '${subject}');
   attachment.put('pretext', 'Git info');
   attachment.put('color', '$(color)');
+  def url = getGitUrl();
+  attachment.put('footer', '$(url)');
 
   JSONObject fieldBranch = new JSONObject();
   fieldBranch.put('title', 'Branch');
